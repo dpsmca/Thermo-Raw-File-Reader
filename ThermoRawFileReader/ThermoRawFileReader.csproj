@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <RootNamespace>ThermoRawFileReader</RootNamespace>
     <AssemblyName>ThermoRawFileReader</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -17,6 +16,7 @@
     <PackageProjectUrl>https://github.com/PNNL-Comp-Mass-Spec/Thermo-Raw-File-Reader</PackageProjectUrl>
     <Title>ThermoRawFileReader</Title>
     <LangVersion>latest</LangVersion>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.107">

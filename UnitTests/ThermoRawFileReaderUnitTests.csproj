@@ -1,55 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ACADABB8-BF64-4FED-9157-E44BE88F9D1C}</ProjectGuid>
+    <TargetFramework>net7.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RawFileReaderTests</RootNamespace>
     <AssemblyName>RawFileReaderTests</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile />
     <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
+    <Reference Update="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThermoFilterStringTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThermoScanDataTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ThermoRawFileReader\ThermoRawFileReader.csproj">
-      <Project>{9a814c6c-bd10-4ce3-bd68-bb4774fb10a8}</Project>
-      <Name>ThermoRawFileReader</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\ThermoRawFileReader\ThermoRawFileReader.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NUnit">
@@ -58,17 +22,18 @@
     <PackageReference Include="PRISM-Library">
       <Version>2.8.7</Version>
     </PackageReference>
+    <PackageReference Include="ThermoFisher.CommonCore.BackgroundSubtraction" Version="5.0.0.88" />
+    <PackageReference Include="ThermoFisher.CommonCore.Data" Version="5.0.0.88" />
+    <PackageReference Include="ThermoFisher.CommonCore.MassPrecisionEstimator" Version="5.0.0.88" />
+    <PackageReference Include="ThermoFisher.CommonCore.RawFileReader" Version="5.0.0.88" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist "%25appdata%25\..\Local\JetBrains\Docs" (mkdir "%25appdata%25\..\Local\JetBrains\Docs")
-xcopy "$(ProjectDir)Docs\*.raw" "%25appdata%25\..\Local\JetBrains\Docs\" /Y /D</PostBuildEvent>
+    <!--<PostBuildEvent>if not exist "%25appdata%25\..\Local\JetBrains\Docs" (mkdir "%25appdata%25\..\Local\JetBrains\Docs")
+xcopy "$(ProjectDir)Docs\*.raw" "%25appdata%25\..\Local\JetBrains\Docs\" /Y /D</PostBuildEvent>-->
+    <AssemblyTitle>ThermoRawFileReaderUnitTests</AssemblyTitle>
+    <Company>PNNL</Company>
+    <Product>ThermoRawFileReaderUnitTests</Product>
+    <Copyright>Copyright © PNNL 2016</Copyright>
+    <AssemblyVersion>1.0.%2a</AssemblyVersion>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
